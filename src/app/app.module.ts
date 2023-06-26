@@ -12,24 +12,9 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { metaReducers, reducers } from './reducers';
 import { EntityDataModule } from '@ngrx/data';
-import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from "./shared/shared.module";
-import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-
-
-const routes: Routes = [
-    {
-        path: '**',
-        redirectTo: '/',
-        pathMatch: 'full'
-    },
-    {
-        path: 'home',
-        component: HomeComponent
-    }
-];
-
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
     declarations: [
@@ -38,10 +23,10 @@ const routes: Routes = [
     ],
     imports: [
         BrowserModule,
+        AppRoutingModule,
         SharedModule,
+        AuthModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(routes, {}),
-        AuthModule.forRoot(),
         StoreModule.forRoot(reducers, {
             metaReducers,
             runtimeChecks: {

@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="p-2 bg-light">
-                <p>Logged in: {{ isLoggedIn$ | async }}</p>
+                <p>Logged in: {{ (isLoggedIn$ | async) }}</p>
                 <p>Logged out: {{ isLoggedOut$ | async }}</p>
             </div>
         </div>
