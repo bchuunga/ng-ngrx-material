@@ -15,11 +15,13 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AppRoutingModule } from './app.routing.module';
 import { metaReducers, reducers } from './^state/app.reducer';
 import { GlobalStateModule } from './^state/global-state/global-state.module';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
