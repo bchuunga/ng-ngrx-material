@@ -1,6 +1,6 @@
 # NgrxStarter
 
-This is an NGRX starter project to get you up and running with setting up and using the store. The project implements a simple
+This is an NGRX starter project to get you up and running with setting up and using the NGRX store. The project implements a simple
 authentication state with effects and selectors and a global state which detects the size of the viewport (desktop or mobile).
 
 ## Development server
