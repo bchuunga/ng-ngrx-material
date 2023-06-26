@@ -1,0 +1,12 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mb-4">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input formControlName="email" required type="email" class="form-control form-control-lg" id="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input formControlName="password" required type="password" class="form-control form-control-lg" id="password">
+    </div>
+    <button class="btn btn-primary me-2" type="submit">Login</button>
+    <button (click)="onReset()" class="btn btn-primary" type="button">Reset</button>
+</form>
