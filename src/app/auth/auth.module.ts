@@ -8,7 +8,7 @@ import { authFeatureKey, authReducer } from './reducers/auth.reducer';
 import { AuthGuard } from './auth.guard';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth.effects';
-import {SharedModule} from "../shared/shared.module";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     imports: [

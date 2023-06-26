@@ -13,21 +13,28 @@ import { EffectsModule } from '@ngrx/effects';
 import { metaReducers, reducers } from './reducers';
 import { EntityDataModule } from '@ngrx/data';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import {SharedModule} from "./shared/shared.module";
+import { SharedModule } from "./shared/shared.module";
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 
 const routes: Routes = [
     {
         path: '**',
-        redirectTo: '/'
+        redirectTo: '/',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
     }
 ];
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent
     ],
     imports: [
         BrowserModule,
