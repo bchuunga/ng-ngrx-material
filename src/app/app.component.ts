@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Store } from '@ngrx/store';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { AppState } from './reducers/app.reducers';
+import { AppState } from './^state/app.reducer';
 import { login, logout } from './auth/^state/auth.actions';
 import authSelectors from './auth/^state/auth.selectors';
 import { UserEnums } from './shared/enums/enums';
+import globalSelectors from './^state/global-state/global.selectors';
+import { Observable, map } from 'rxjs';
+import globalActions from './^state/global-state/global.actions';
 
 @Component({
     selector: 'app-root',
@@ -15,12 +19,14 @@ export class AppComponent implements OnInit {
 
     loading = true;
 
-    isLoggedIn$ = this.store.select(authSelectors.isLoggedIn);
-    isLoggedOut$ = this.store.select(authSelectors.isLoggedOut);
+    isLoggedIn$: Observable<boolean> = this.store.select(authSelectors.isLoggedIn);
+    isLoggedOut$: Observable<boolean> = this.store.select(authSelectors.isLoggedOut);
+    isMobile$: Observable<boolean> = this.store.select(globalSelectors.isMobile);
 
     constructor(
-        private router: Router,
-        private store: Store<AppState>) { }
+        private readonly router: Router,
+        private readonly breakpointObserver: BreakpointObserver,
+        private readonly store: Store<AppState>) { }
 
     ngOnInit() {
         const userProfile = localStorage.getItem(UserEnums.currentUser);
@@ -28,6 +34,17 @@ export class AppComponent implements OnInit {
         if (userProfile) {
             this.store.dispatch(login({ user: JSON.parse(userProfile) }));
         }
+
+        this.breakpointObserver
+            .observe([Breakpoints.XSmall, Breakpoints.Small])
+            .pipe(
+                map((b) => b.matches)
+            )
+            .subscribe((m) => {
+                this.store.dispatch(
+                    globalActions.screenViewChanged({ isMobile: m })
+                );
+            });
 
         this.router.events.subscribe(event => {
             switch (true) {

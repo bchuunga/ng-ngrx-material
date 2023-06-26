@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/^state/app.reducer';
 import authActions from 'src/app/auth/^state/auth.actions';
-import { AppState } from 'src/app/reducers/app.reducers';
 
 @Component({
   selector: 'app-navbar',

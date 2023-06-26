@@ -11,6 +11,7 @@
             <div class="p-2 bg-light">
                 <p>Logged in: {{ (isLoggedIn$ | async) }}</p>
                 <p>Logged out: {{ isLoggedOut$ | async }}</p>
+                <p>Current Viewport: {{ (isMobile$ | async) ? "Mobile" : "Desktop" }}</p>
             </div>
         </div>
     </div>
