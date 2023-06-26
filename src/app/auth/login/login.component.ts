@@ -5,10 +5,11 @@ import { Store } from "@ngrx/store";
 
 import { AuthService } from "../auth.service";
 import { tap } from "rxjs/operators";
-import { noop } from "rxjs";
 import { Router } from "@angular/router";
 import { AppState } from '../../reducers';
-import { login } from '../auth.actions';
+import authActions, { login } from '../auth.actions';
+import { User } from 'src/app/models/user';
+import { Login } from 'src/app/models/login';
 
 @Component({
     selector: 'login',
@@ -43,10 +44,25 @@ export class LoginComponent {
 
     onSubmit() {
         this.submitted = true;
-        if (!this.loginForm.valid)
+        if (!this.loginForm.valid) {
             return;
+        }
 
-        console.log(this.loginForm.value);
+        const loginDto: Login = {
+            email: 'ben.chuunga@gmail.com',
+            password: 'test'
+        };
+
+        this.auth.login(loginDto)
+            .pipe(
+                tap((user: User) => {
+                    console.log(user);
+                    this.store.dispatch(authActions.login({ user: user }));
+                    this.router.navigateByUrl('home');
+                })
+            )
+            .subscribe();
+
     }
 
     onReset() {
