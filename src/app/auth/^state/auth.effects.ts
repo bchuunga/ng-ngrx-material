@@ -3,6 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import authActions from './auth.actions';
+import { UserEnums } from 'src/app/shared/enums/enums';
 
 
 @Injectable()
@@ -12,7 +13,7 @@ export class AuthEffects {
         this.actions$
             .pipe(
                 ofType(authActions.login),
-                tap(action => localStorage.setItem('user',
+                tap(action => localStorage.setItem(UserEnums.currentUser,
                     JSON.stringify(action.user))
                 )
             )
@@ -24,7 +25,7 @@ export class AuthEffects {
             .pipe(
                 ofType(authActions.logout),
                 tap(action => {
-                    localStorage.removeItem('user');
+                    localStorage.removeItem(UserEnums.currentUser);
                     this.router.navigateByUrl('/login');
                 })
             )

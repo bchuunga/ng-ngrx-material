@@ -1,15 +1,15 @@
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {AppState} from '../reducers';
-import {select, Store} from '@ngrx/store';
-import {isLoggedIn} from './auth.selectors';
-import {tap} from 'rxjs/operators';
-import {login, logout} from './auth.actions';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppState } from '../reducers/app.reducers';
+import { select, Store } from '@ngrx/store';
+import { isLoggedIn } from './auth.selectors';
+import { tap } from 'rxjs/operators';
+import { login, logout } from './^state/auth.actions';
 
 
 @Injectable()
-export class AuthGuard  {
+export class AuthGuard {
 
     constructor(
         private store: Store<AppState>,

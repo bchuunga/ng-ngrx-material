@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { EffectsModule } from '@ngrx/effects';
-import { metaReducers, reducers } from './reducers';
+import { metaReducers, reducers } from './reducers/app.reducers';
 import { EntityDataModule } from '@ngrx/data';
 import { SharedModule } from "./shared/shared.module";
 import { NavbarComponent } from './layout/navbar/navbar.component';

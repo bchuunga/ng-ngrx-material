@@ -5,8 +5,8 @@ import { RouterModule } from "@angular/router";
 import { StoreModule } from '@ngrx/store';
 import { authFeatureKey, authReducer } from './reducers/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from './auth.effects';
 import { SharedModule } from "../shared/shared.module";
+import { AuthEffects } from './^state/auth.effects';
 
 @NgModule({
     imports: [
