@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { AppState } from './reducers';
-import authSelectors, { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
-import { login, logout } from './auth/auth.actions';
+import { AppState } from './reducers/app.reducers';
+import { login, logout } from './auth/^state/auth.actions';
+import authSelectors from './auth/^state/auth.selectors';
+import { UserEnums } from './shared/enums/enums';
 
 @Component({
     selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
         private store: Store<AppState>) { }
 
     ngOnInit() {
-        const userProfile = localStorage.getItem("user");
+        const userProfile = localStorage.getItem(UserEnums.currentUser);
 
         if (userProfile) {
             this.store.dispatch(login({ user: JSON.parse(userProfile) }));

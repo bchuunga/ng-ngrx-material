@@ -6,8 +6,8 @@ import { Store } from "@ngrx/store";
 import { AuthService } from "../auth.service";
 import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
-import { AppState } from '../../reducers';
-import authActions, { login } from '../auth.actions';
+import { AppState } from '../../reducers/app.reducers';
+import authActions, { login } from '../^state/auth.actions';
 import { User } from 'src/app/models/user';
 import { Login } from 'src/app/models/login';
 
