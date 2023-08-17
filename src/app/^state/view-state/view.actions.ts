@@ -5,8 +5,8 @@ export const screenViewChanged = createAction(
     props<{ isMobile: boolean }>()
 );
 
-const globalActions = {
+const viewActions = {
     screenViewChanged
 };
 
-export default globalActions;
+export default viewActions;

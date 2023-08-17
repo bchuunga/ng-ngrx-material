@@ -1,3 +1,13 @@
-<div class="container py-5 text-center">
-    Copyright &copy; {{currentYear}}. All rights reserved.
-</div>
+<mat-toolbar class="mat-toolbar sidenav-bg">
+  <footer [ngClass]="{ 'mobile': isMobile$ | async }">
+    <div class="footer-content">
+      Copyright &copy; <strong>Zambia Lending</strong>  {{currentYear}}. All rights reserved.
+    </div>
+    <div class="footer-content">
+      <a href="">Terms of Use</a>
+    </div>
+    <div class="footer-content">
+      <a href="">Privacy Policy</a>
+    </div>
+  </footer>
+</mat-toolbar>

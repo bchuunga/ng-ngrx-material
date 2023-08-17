@@ -6,9 +6,9 @@ import { AppState } from './^state/app.reducer';
 import { login, logout } from './auth/^state/auth.actions';
 import authSelectors from './auth/^state/auth.selectors';
 import { UserEnums } from './shared/enums/enums';
-import globalSelectors from './^state/global-state/global.selectors';
+import viewSelectors from './^state/view-state/view.selectors';
 import { Observable, map } from 'rxjs';
-import globalActions from './^state/global-state/global.actions';
+import viewActions from './^state/view-state/view.actions';
 
 @Component({
     selector: 'app-root',
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
     isLoggedIn$: Observable<boolean> = this.store.select(authSelectors.isLoggedIn);
     isLoggedOut$: Observable<boolean> = this.store.select(authSelectors.isLoggedOut);
-    isMobile$: Observable<boolean> = this.store.select(globalSelectors.isMobile);
+    isMobile$: Observable<boolean> = this.store.select(viewSelectors.isMobile);
 
     constructor(
         private readonly router: Router,
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
             )
             .subscribe((m) => {
                 this.store.dispatch(
-                    globalActions.screenViewChanged({ isMobile: m })
+                    viewActions.screenViewChanged({ isMobile: m })
                 );
             });
 

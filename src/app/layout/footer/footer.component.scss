@@ -1,0 +1,27 @@
+footer {
+  font-size: 1rem;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  .footer-content {
+    margin: 0 35px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+  }
+  &.mobile {
+    flex-direction: column;
+    .footer-content {
+      text-align: center;
+    }
+  }
+}
+.mat-toolbar {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  height: auto;
+}

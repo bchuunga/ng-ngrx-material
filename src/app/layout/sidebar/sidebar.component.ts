@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/app/^state/app.reducer';
-import authActions from 'src/app/auth/^state/auth.actions';
-import authSelectors from 'src/app/auth/^state/auth.selectors';
-import viewActions from '../../^state/view-state/view.actions';
 import viewSelectors from '../../^state/view-state/view.selectors';
+import authSelectors from '../../auth/^state/auth.selectors';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../^state/app.reducer';
+import authActions from '../../auth/^state/auth.actions';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
 })
-export class NavbarComponent {
+export class SidebarComponent {
   isMobile$: Observable<boolean> = this.store.select(viewSelectors.isMobile);
   isLoggedIn$: Observable<boolean> = this.store.select(
     authSelectors.isLoggedIn,

@@ -1,20 +1,12 @@
-<app-navbar></app-navbar>
-
-<div class="container pt-5">
-    <div class="row">
-        <div class="col-md-12">
-            <router-outlet></router-outlet>
-        </div>
+<mat-sidenav-container class="body-bg mat-sidenav-container">
+  <mat-sidenav mode="side" [opened]="!(isMobile$ | async)" class="mat-sidenav sidenav-bg border-right">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content class="mat-sidenav-content">
+    <app-navbar></app-navbar>
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="p-2 bg-light">
-                <p>Logged in: {{ (isLoggedIn$ | async) }}</p>
-                <p>Logged out: {{ isLoggedOut$ | async }}</p>
-                <p>Current Viewport: {{ (isMobile$ | async) ? "Mobile" : "Desktop" }}</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<app-footer></app-footer>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

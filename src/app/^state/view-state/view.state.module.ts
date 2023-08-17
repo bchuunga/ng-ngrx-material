@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { globalReducer, globalStateFeatureKey } from './global-reducer';
+import { viewState, globalStateFeatureKey } from './view.state';
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature(globalStateFeatureKey, globalReducer),
+    StoreModule.forFeature(globalStateFeatureKey, viewState),
     EffectsModule.forFeature([])
   ]
 })
-export class GlobalStateModule { }
+export class ViewStateModule { }

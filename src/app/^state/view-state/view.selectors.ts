@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { GlobalState, globalStateFeatureKey } from "./global-reducer";
+import { GlobalState, globalStateFeatureKey } from "./view.state";
 
 export const selectGlobalState = createFeatureSelector<GlobalState>(globalStateFeatureKey);
 
@@ -8,8 +8,8 @@ export const isMobile = createSelector(
     view => view.isMobile
 );
 
-const globalSelectors = {
+const viewSelectors = {
     isMobile
 };
 
-export default globalSelectors;
+export default viewSelectors;

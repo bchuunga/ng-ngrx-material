@@ -1,0 +1,120 @@
+<div class="sidebar">
+  <mat-toolbar class="mat-toolbar sidenav-bg">
+    <span>Zambia Lending</span>
+  </mat-toolbar>
+  <div class="sidebar-container">
+    <div class="sidebar-top">
+      <mat-list>
+        <a
+          routerLink="/welcome"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined"> waving_hand </span>
+            <span class="mat-list-item-text">Welcome</span>
+          </div>
+        </a>
+        <a
+          routerLink="/fast-cash"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined"> add_card </span>
+            <span class="mat-list-item-text">FastCash</span>
+          </div>
+        </a>
+        <a
+          routerLink="/payday-loans"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined">
+              account_balance_wallet
+            </span>
+            <span class="mat-list-item-text">Payday Loans</span>
+          </div>
+        </a>
+        <a
+          routerLink="/side-hustle"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined">delivery_dining</span>
+            <span class="mat-list-item-text">Side Hustle</span>
+          </div>
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          *ngIf="isLoggedOut$ | async"
+          routerLink="/login"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined"> login </span>
+            <span class="mat-list-item-text">Login</span>
+          </div>
+        </a>
+        <a
+          (click)="logout()"
+          *ngIf="isLoggedIn$ | async"
+          href="#"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined">logout</span>
+            <span class="mat-list-item-text">Logout</span>
+          </div>
+        </a>
+      </mat-list>
+    </div>
+    <div class="sidebar-bottom" *ngIf="isLoggedIn$ | async">
+      <mat-list>
+        <a
+          routerLink="/settings"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined">settings</span>
+            <span class="mat-list-item-text">Settings</span>
+          </div>
+        </a>
+        <a
+          routerLink="/profile"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined">account_circle</span>
+            <span class="mat-list-item-text">Profile</span>
+          </div>
+        </a>
+        <a
+          routerLink="/preferences"
+          routerLinkActive="active-link"
+          class="mat-list-item"
+          mat-list-item
+        >
+          <div class="mat-list-item-container">
+            <span class="material-icons-outlined"> tune </span>
+            <span class="mat-list-item-text">Preferences</span>
+          </div>
+        </a>
+      </mat-list>
+    </div>
+  </div>
+</div>

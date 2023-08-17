@@ -14,14 +14,20 @@ import { SharedModule } from "./shared/shared.module";
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AppRoutingModule } from './app.routing.module';
 import { metaReducers, reducers } from './^state/app.reducer';
-import { GlobalStateModule } from './^state/global-state/global-state.module';
+import { ViewStateModule } from './^state/view-state/view.state.module';
 import { FooterComponent } from './layout/footer/footer.component';
+import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        BreadcrumbComponent,
+        SidebarComponent,
+        WelcomeComponent
     ],
     imports: [
         BrowserModule,
@@ -45,7 +51,7 @@ import { FooterComponent } from './layout/footer/footer.component';
             stateKey: 'router',
             routerState: RouterState.Minimal
         }),
-        GlobalStateModule
+        ViewStateModule
     ],
     bootstrap: [AppComponent]
 })

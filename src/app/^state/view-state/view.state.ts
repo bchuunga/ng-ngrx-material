@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
-import globalActions from "./global.actions";
+import viewActions from "./view.actions";
 
-export const globalStateFeatureKey = 'global';
+export const globalStateFeatureKey = 'viewport';
 
 export interface GlobalState {
     isMobile: boolean;
@@ -11,9 +11,9 @@ export const initialGlobalState: GlobalState = {
     isMobile: false
 };
 
-export const globalReducer = createReducer(
+export const viewState = createReducer(
     initialGlobalState,
-    on(globalActions.screenViewChanged, (state, action) => ({
+    on(viewActions.screenViewChanged, (state, action) => ({
         ...state,
         isMobile: action.isMobile
     }))
